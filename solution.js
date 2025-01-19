@@ -24,7 +24,8 @@ function cleanData(e) {
 
 //changeContent('search-form-content');
 //changeContent('search-result-form-content');
-changeContent('guest-details-form-content');
+// changeContent('guest-details-form-content');
+changeContent('confirm-reservation-content');
 document.querySelector('#search-form-button').addEventListener('click', (e) => searchFormData(e));
 
 function searchFormData(e) {
@@ -117,5 +118,20 @@ function fillConfirmReservationData(customReservation) {
     document.querySelector('.confirm-reservation #guest-room-type').textContent = `Room Type: ${customReservation.roomType}`;
     document.querySelector('.confirm-reservation #guest-data-in').textContent = `Date-in: ${customReservation.startDate}`;
     document.querySelector('.confirm-reservation #guest-data-out').textContent = `Date-out: ${customReservation.endDate}`;
+}
+
+document.querySelector('#confirm-back-btn').addEventListener('click', (e) => getBackToPersonalData(e));
+
+function getBackToPersonalData(e) {
+    e.preventDefault();
+    changeContent('guest-details-form-content');
+}
+
+
+document.querySelector('#confirm-reservation').addEventListener('click', (e) => showThanksPage(e));
+
+function showThanksPage(e) {
+    e.preventDefault();
+    changeContent('thank-you-content');
 }
 
